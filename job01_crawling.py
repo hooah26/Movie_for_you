@@ -19,10 +19,10 @@ import io
 
 headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.82 Safari/537.36"}
 
-total_page = 1
+total_page = 20
 movies_no = []
 for i  in range(total_page) :
-    url = 'https://movie.naver.com/movie/sdb/browsing/bmovie.naver?open=2022&page={}'.format(i)
+    url = 'https://movie.naver.com/movie/sdb/browsing/bmovie.naver?open=2018&page={}'.format(i)
 
     res = requests.get(url, headers=headers)
     html = res.content.decode('utf-8', 'replace')
@@ -87,5 +87,5 @@ for url_movie in url_list:
 df = pd.DataFrame({'title':titles, 'reviews':review})
 
 print(df.head())
-df.to_csv('./reviews_{}.csv'.format(2022), encoding='utf-8-sig', index=False, errors='ignore')
+df.to_csv('./reviews_{}.csv'.format(2018), encoding='utf-8-sig', index=False, errors='ignore')
 
