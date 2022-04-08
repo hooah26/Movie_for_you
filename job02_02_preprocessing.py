@@ -5,7 +5,7 @@ import re
 df = pd.read_csv('./crawling_data/cleaned_review_2018_2022.csv')
 print(df.head())
 df.info()
-
+df.dropna(inplace=True)
 okt = Okt()
 count = 0
 cleaned_sentences = []
@@ -27,4 +27,5 @@ for sentence in df.cleaned_sentences:
 df['cleaned_sentences'] = cleaned_sentences
 print(df.head())
 df.info()
-df.to_csv('./crawling_data/cleaned_review_2018_2022.csv',index=False)
+df.to_csv('./crawling_data/cleaned_review2021.csv',
+          index=False)

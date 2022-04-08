@@ -6,11 +6,15 @@ df = pd.read_csv('./crawling_data/reviews_2021120.csv')
 print(df.head())
 df.info()
 
+for i in range(len(df)):
+    if len(df.iloc[i, 1]) > 1000:
+        df.iloc[i, 1] = df.iloc[i, 1][:1000]
+
 stopwords = pd.read_csv('./crawling_data/stopwords.csv')
 stopwords_list = list(stopwords['stopword'])
 cleaned_sentences = []
 for review in df.reviews:
-    review = re.sub('[^가-힣]', '', review)
+    review = re.sub('[^가-힣 ]', '', review)
     review_word = review.split(' ')
 
     words = []
