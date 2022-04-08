@@ -2,7 +2,7 @@ import pandas as pd
 from konlpy.tag import Okt
 import re
 
-df = pd.read_csv('./crawling_data/reviews_2021120.csv')
+df = pd.read_csv('crawling_data/reviews_2021_2.csv')
 print(df.head())
 df.info()
 
